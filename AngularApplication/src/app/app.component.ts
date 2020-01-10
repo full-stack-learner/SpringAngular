@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular Application';
+  title = 'Angular Frontend | Spring Backend';
 
   constructor(private service: AuthService) {
     
@@ -24,10 +24,6 @@ export class AppComponent {
 
   isLoggedIn() {
       return this.service.getAccessToken() != null
-  }
-
-  authorize() {
-    this.service.authorize()
   }
 
   logout() {

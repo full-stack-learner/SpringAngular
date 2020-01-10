@@ -13,6 +13,7 @@ class User(@get:JvmName("username_") var username: String, @get:JvmName("passwor
     }
 
     var enabled: Boolean = true
+    var name: String? = null
 
     @JsonIgnore
     var grantedAuthorities: List<String> = listOf()

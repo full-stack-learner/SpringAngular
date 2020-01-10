@@ -11,7 +11,6 @@ import {Router} from "@angular/router";
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  invalidLogin: boolean = false;
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
 
   onSubmit() {
@@ -25,9 +24,14 @@ export class LoginComponent implements OnInit {
     this.authService.login(username, password, 'users')
   }
 
+  // oauth authorization code flow
+  authorize() {
+    this.authService.authorize()
+  }
+
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.compose([Validators.required])],
+      username: ['', Validators.required],
       password: ['', Validators.required]
     });
   }

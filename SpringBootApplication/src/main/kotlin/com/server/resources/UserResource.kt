@@ -22,6 +22,11 @@ class UserResource {
         return userRepository.findAll()
     }
 
+    @DeleteMapping("/{id}")
+    fun delete(@PathVariable("id") id: String) {
+        userRepository.deleteById(id)
+    }
+
     @PostMapping
     fun create(@RequestBody user: User): ResponseEntity<User> {
         if (userRepository.findByUsername(user.username) == null) {

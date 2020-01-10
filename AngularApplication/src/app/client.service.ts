@@ -22,4 +22,8 @@ export class ClientService extends BaseService{
    public create(client) {
     return this.http.post(this.urlWithToken(this.clientsUrl), client);
   }
+
+  public delete(id) {
+    return this.http.delete(this.urlWithToken(this.clientsUrl + "/" + id));
+  }
 }

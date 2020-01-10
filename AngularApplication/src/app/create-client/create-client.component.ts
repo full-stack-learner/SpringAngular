@@ -12,7 +12,6 @@ import { Client } from '../client';
 export class CreateClientComponent implements OnInit {
 
   clientForm: FormGroup;
-  invalidLogin: boolean = false;
   constructor(private formBuilder: FormBuilder, private router: Router, private clientService: ClientService) { }
 
   onSubmit() {
@@ -37,13 +36,13 @@ export class CreateClientComponent implements OnInit {
   ngOnInit() {
     this.clientForm = this.formBuilder.group({
       secret: ['', Validators.required],
-      secretConfirmation: ['', Validators.required]
+      secretConfirm: ['', Validators.required]
     }, { validator: this.checkSecrets });
   }
 
   private checkSecrets(group: FormGroup) {
     let secret = group.get('secret').value;
-    let confirmSecret = group.get('secretConfirmation').value;
+    let confirmSecret = group.get('secretConfirm').value;
 
     if (secret === null) {
       return { notSame: true } 

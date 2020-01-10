@@ -1,4 +1,62 @@
-<div class="card my-5">
+<div>
+  <br>
+    <div class="container">
+        <div class="container">
+          <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row"  fxLayoutAlign="space-around center" class="content">
+              <div class="blocks">
+                  <button button="submit" mat-raised-button color="primary" routerLink="/createuser">
+                      <mat-icon>add</mat-icon> Add User
+                  </button>
+              </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+      <div fxLayout="row" fxLayoutAlign="center center" class="content">
+        <mat-card class="card" >
+          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+            <h3>Users</h3>
+          </mat-card-title>
+          <mat-card-content>
+              <div class="example-container mat-elevation-z3">
+                  <mat-table #table [dataSource]="dataSource">
+                  <ng-container matColumnDef="id">
+                    <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+                    <mat-cell *matCellDef="let user"> {{user.id}} </mat-cell>
+                  </ng-container>
+                    <ng-container matColumnDef="name">
+                      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                      <mat-cell *matCellDef="let user"> {{user.name}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="username">
+                      <mat-header-cell *matHeaderCellDef> Username </mat-header-cell>
+                      <mat-cell *matCellDef="let user"> {{user.username}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="password">
+                      <mat-header-cell *matHeaderCellDef> Password </mat-header-cell>
+                      <mat-cell *matCellDef="let user"> {{user.password}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="delete">
+                      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                      <mat-cell *matCellDef="let user" class="delete-cell">
+                        <a type="button" (click)="delete(user.id)">
+                          <mat-icon class="icon">delete</mat-icon>
+                        </a>
+                      </mat-cell>
+                    </ng-container>
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                  </mat-table>
+                </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="card my-5">
     <div class="card-body">
       <table class="table table-bordered table-striped">
         <thead class="thead-dark">
@@ -19,4 +77,4 @@
         </tbody>
       </table>
     </div>
-  </div>
+  </div> -->

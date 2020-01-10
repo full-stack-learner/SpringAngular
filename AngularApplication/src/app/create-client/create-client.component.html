@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
 
     <div class="col-md-6 login-container">
       <h2 style="margin: auto">Create OAuth2 Client</h2>
@@ -16,5 +16,22 @@
         <button class="btn btn-success" [disabled]="clientForm.invalid">Create Client</button>
       </form>
     </div>
+  </div> -->
+
+  <div class="main-div" fxLayout="row" fxLayoutAlign="center center">
+    <form class="create-client-form" [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+      <h2>Create Client</h2>
+      <mat-form-field>
+        <input matInput placeholder="Client secret" value="" type="password" formControlName="secret">
+        <mat-error>Secret is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Confirm client secret" value="" type="password" formControlName="secretConfirm">
+        <mat-error>Secrets do not match</mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" [disabled]="clientForm.invalid">Create</button>
+    </form>
   </div>
   

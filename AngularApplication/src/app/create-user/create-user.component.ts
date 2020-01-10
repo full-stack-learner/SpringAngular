@@ -12,7 +12,6 @@ import { User } from '../user';
 export class CreateUserComponent implements OnInit {
 
   signupForm: FormGroup;
-  invalidLogin: boolean = false;
   constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
 
   onSubmit() {
@@ -22,14 +21,20 @@ export class CreateUserComponent implements OnInit {
 
     const username = this.signupForm.controls.username.value
     const password = this.signupForm.controls.password.value
+    const name = this.signupForm.controls.name.value
     let user = new User()
     user.username = username
     user.password = password
+    user.name = name
     
     this.userService.create(user).subscribe(
       data => {
         alert('User created')
-        this.router.navigate(['login'])
+        if(this.userService.loggedIn()) {
+          this.router.navigate(['users'])
+        } else {
+          this.router.navigate(['login'])
+        }
       }, err => alert('Error during signup')
     ); 
   }
@@ -38,13 +43,14 @@ export class CreateUserComponent implements OnInit {
     this.signupForm = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required])],
       password: ['', Validators.required],
-      passwordConfirmation: ['', Validators.required]
+      passwordConfirm: ['', Validators.required],
+      name: ['']
     }, { validator: this.checkPasswords });
   }
 
   private checkPasswords(group: FormGroup) { // here we have the 'signup' group
     let pass = group.get('password').value;
-    let confirmPass = group.get('passwordConfirmation').value;
+    let confirmPass = group.get('passwordConfirm').value;
 
     if (pass === null) {
       return { notSame: true } 

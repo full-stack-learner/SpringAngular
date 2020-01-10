@@ -1,4 +1,40 @@
-<div class="card my-5">
+<div>
+  <br>
+    <div class="container">
+        <div class="container">
+          <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row"  fxLayoutAlign="space-around center" class="content">
+              <div class="blocks">
+                  <button button="submit" mat-raised-button color="primary" routerLink="/createuser">
+                      Logout
+                  </button>
+              </div>
+        </div>
+    </div>
+    <br>
+
+<div>
+    <div class="container">
+      <div fxLayout="row" fxLayoutAlign="center center" class="content">
+        <mat-card class="card" >
+          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+            <h3>Current User</h3>
+          </mat-card-title>
+          <mat-card-content>
+            <mat-list>
+              <mat-list-item> Id: {{ user.id }} </mat-list-item>
+              <mat-list-item> Name: {{ user.name }} </mat-list-item>
+              <mat-list-item> Username: {{ user.username }} </mat-list-item>
+              <mat-list-item> Pw: {{ user.password }} </mat-list-item>
+             </mat-list>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="card my-5">
     <div class="card-body">
       <a *ngIf="!service.loggedIn()">User not logged in</a>
       <table *ngIf="service.loggedIn() && user"  class="table table-bordered table-striped">
@@ -22,10 +58,10 @@
                 <td>{{ user.password }}</td>
             </tr>
             <tr>
-                <td>Enabled</td>
-                <td>{{ user.enabled }}</td>
+                <td>Name</td>
+                <td>{{ user.name }}</td>
             </tr>
         </tbody>
       </table>
     </div>
-  </div>
+  </div> -->

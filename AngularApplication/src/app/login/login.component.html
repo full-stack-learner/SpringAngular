@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
 
     <div class="col-md-6 login-container">
       <h2 style="margin: auto">Login </h2>
@@ -19,5 +19,28 @@
         </div>
       </form>
     </div>
-  </div>
+  </div> -->
+
+
+<div class="main-div" fxLayout="row" fxLayoutAlign="center center">
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h2>Login</h2>
+    <mat-form-field>
+      <input matInput placeholder="Username" value="" type="email" formControlName="username">
+      <mat-error>Username is required</mat-error>
+    </mat-form-field>
   
+    <mat-form-field>
+      <input matInput placeholder="Password" value="" type="password" formControlName="password">
+      <mat-error>Password is required</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="loginForm.invalid">Login</button>
+    
+  </form>
+
+  
+</div>
+<div class="authorization-code-div" fxLayoutAlign="center">
+  <button mat-raised-button color="primary" (click)="authorize()">OAuth2 Authorization Code Flow</button>
+</div>

@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
 
     <div class="col-md-6 login-container">
       <h2 style="margin: auto">Create User</h2>
@@ -21,5 +21,30 @@
         <button class="btn btn-success" [disabled]="signupForm.invalid">Signup</button>
       </form>
     </div>
+  </div> -->
+
+  <div class="main-div" fxLayout="row" fxLayoutAlign="center center">
+    <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <h2>Create User / Account</h2>
+      <mat-form-field>
+        <input matInput placeholder="Name" value="" type="text" formControlName="name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Username / Email" value="" type="email" formControlName="username">
+        <mat-error>Username is required</mat-error>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <input matInput placeholder="Password" value="" type="password" formControlName="password">
+        <mat-error>Password is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Confirm password" value="" type="password" formControlName="passwordConfirm">
+        <mat-error>Passwords do not match</mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" [disabled]="signupForm.invalid">Signup</button>
+    </form>
   </div>
   

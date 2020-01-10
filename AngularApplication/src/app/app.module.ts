@@ -15,6 +15,11 @@ import { UserComponent } from './user/user.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { CreateClientComponent } from './create-client/create-client.component';
 import { ClientListComponent } from './client-list/client-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +29,18 @@ import { ClientListComponent } from './client-list/client-list.component';
     UserComponent,
     CreateUserComponent,
     CreateClientComponent,
-    ClientListComponent
+    ClientListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    FlexLayoutModule,
+    FormsModule
   ],
   providers: [UserService, AuthService],
   bootstrap: [AppComponent]

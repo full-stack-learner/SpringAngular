@@ -22,6 +22,11 @@ class ClientResource {
         return clientRepository.findAll()
     }
 
+    @DeleteMapping("/{id}")
+    fun delete(@PathVariable("id") id: String) {
+        clientRepository.deleteById(id)
+    }
+
     @PostMapping
     fun create(@RequestBody client: Client): ResponseEntity<Client> {
         client.secret = passwordEncoder.encode(client.secret)

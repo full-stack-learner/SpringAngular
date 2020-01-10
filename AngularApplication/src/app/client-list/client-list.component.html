@@ -1,4 +1,85 @@
-<div class="card my-5">
+<div>
+  <br>
+    <div class="container">
+        <div class="container">
+          <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row"  fxLayoutAlign="space-around center" class="content">
+              <div class="blocks">
+                  <button button="submit" mat-raised-button color="primary" routerLink="/createclient">
+                      <mat-icon>add</mat-icon> Add Client
+                  </button>
+              </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+      <div fxLayout="row" fxLayoutAlign="center center" class="content">
+        <mat-card class="card" >
+          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+            <h3>Clients</h3>
+          </mat-card-title>
+          <mat-card-content>
+              <div class="example-container mat-elevation-z3">
+                  <mat-table #table [dataSource]="dataSource">
+                  <ng-container matColumnDef="id">
+                    <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+                    <mat-cell *matCellDef="let client"> {{client.id}} </mat-cell>
+                  </ng-container>
+                    <ng-container matColumnDef="secret">
+                      <mat-header-cell *matHeaderCellDef> Secret </mat-header-cell>
+                      <mat-cell *matCellDef="let client"> {{client.secret}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="scope">
+                      <mat-header-cell *matHeaderCellDef> Scope </mat-header-cell>
+                      <mat-cell *matCellDef="let client"> {{client.scope}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="secret_required">
+                      <mat-header-cell *matHeaderCellDef> Secret required </mat-header-cell>
+                      <mat-cell *matCellDef="let client"> {{client.secretRequired}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="delete">
+                      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                      <mat-cell *matCellDef="let client" class="delete-cell">
+                        <a type="button" (click)="delete(client.id)">
+                          <mat-icon class="icon">delete</mat-icon>
+                        </a>
+                      </mat-cell>
+                    </ng-container>
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                  </mat-table>
+                </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+            <th scope="col">Enabled</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td><a href="mailto:{{ user.username }}">{{ user.username }}</a></td>
+            <td>{{ user.password }}</td>
+            <td>{{ user.enabled }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> -->
+
+<!-- <div class="card my-5">
     <div class="card-body">
       <table class="table table-bordered table-striped">
         <thead class="thead-dark">
@@ -19,4 +100,4 @@
         </tbody>
       </table>
     </div>
-  </div>
+  </div> -->

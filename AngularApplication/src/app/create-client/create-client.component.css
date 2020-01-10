@@ -1,0 +1,11 @@
+.main-div {
+    height: 100%;
+}
+
+.create-client-form {
+    margin-top: 5%;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }

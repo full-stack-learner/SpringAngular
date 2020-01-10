@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../client.service';
 import { Client } from '../client';
+import { Observable } from 'rxjs';
+import { DataSource } from '@angular/cdk/table';
 
 @Component({
   selector: 'app-client-list',
@@ -9,14 +11,33 @@ import { Client } from '../client';
 })
 export class ClientListComponent implements OnInit {
 
-  clients: Client[];
+  dataSource: ClientDataSource;
+  displayedColumns = ['id', 'scope', 'secret_required', 'secret', 'delete'];
  
   constructor(private clientsService: ClientService) {
   }
  
   ngOnInit() {
-    this.clientsService.findAll().subscribe(data => {
-      this.clients = data;
-    });
+    this.dataSource = new ClientDataSource(this.clientsService);
+  }
+
+  delete(id) {
+    this.clientsService.delete(id).subscribe(
+      data => window.location.reload(),
+      err => alert('Error deleting ' + id)
+    ); 
+  }
+}
+
+export class ClientDataSource extends DataSource<any> {
+  constructor(private clientsService: ClientService) {
+    super();
+  }
+
+  connect(): Observable<Client[]> {
+    return this.clientsService.findAll()
+  }
+
+  disconnect() {
   }
 }
