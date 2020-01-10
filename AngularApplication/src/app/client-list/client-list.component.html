@@ -1,0 +1,22 @@
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Secret</th>
+            <th scope="col">Scopes</th>
+            <th scope="col">Secret Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of clients">
+            <td>{{ client.id }}</td>
+            <td>{{ client.secret }}</td>
+            <td>{{ client.scope }}</td>
+            <td>{{ client.secretRequired }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

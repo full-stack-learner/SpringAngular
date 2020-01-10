@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: test
+  application:
+    name: Server
+server:
+  ssl:
+    key-store: classpath:static/keystore.jks
+    key-store-password: keystore_password
+    key-store-type: jks
+    key-alias: key_alias
+    key-password: key_password
+    enabled: false
+  #port: 8443
+

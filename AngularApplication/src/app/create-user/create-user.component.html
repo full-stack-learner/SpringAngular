@@ -1,0 +1,25 @@
+<div class="row">
+
+    <div class="col-md-6 login-container">
+      <h2 style="margin: auto">Create User</h2>
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" formControlName="username" id="username" autocomplete="off">
+          <div class="error" *ngIf="signupForm.controls['username'].hasError('required') && signupForm.controls['username'].touched">Username is required</div>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password</label>
+          <input type="password" class="form-control" formControlName="password" id="pwd" autocomplete="off">
+          <div class="error" *ngIf="signupForm.controls['password'].hasError('required') && signupForm.controls['password'].touched">Password is required</div>
+        </div>
+        <div class="form-group">
+            <label for="pwd">Confirm Password</label>
+            <input type="password" class="form-control" formControlName="passwordConfirmation" id="pwd" autocomplete="off">
+            <div class="error" *ngIf="signupForm.hasError('notSame') && signupForm.controls['passwordConfirmation'].touched">Passwords must match</div>    
+        </div>
+        <button class="btn btn-success" [disabled]="signupForm.invalid">Signup</button>
+      </form>
+    </div>
+  </div>
+  
