@@ -1,7 +1,12 @@
 # SpringAngularServer
-Pre-configured Spring implementation with out of the box support for OAuth2, MongoDB, REST endpoints, ...
+Pre-configured **Spring** implementation with out of the box support for OAuth2, MongoDB, REST endpoints, ... with frontend written in **Angular**.
 
-# Features
+# General Features
+ - Docker (docker-compose in place for "one-click" deployment)
+ - Frontend using Angular
+ - Backend using Spring
+
+# Spring Features (Backend)
  - Written in **Kotlin**
  - **OAuth2** support
  - Implemented grant types: password, implicit, authorization_code, refresh_token
@@ -17,13 +22,18 @@ Pre-configured Spring implementation with out of the box support for OAuth2, Mon
  - Repository for AuthorizationCode
  - **Well tested**
  - Maven
- - Docker (docker-compose)
+
+# Angular Features (Frontend)
+ - Authenticating with the backend (OAuth2 password & authorization_code)
+ - UI using Angular Material
+ - Components for Login, User creation, User listing / deletion
 
 # Run
  - Package the application: './mvnw package'
  - Create a docker image: 'docker build -t philjay/springangular .' (optional because this is also done by 'build:'' in docker-compose in this case)
  - Run docker-compose: 'docker-compose up -d --build --force-recreate' (remove -d for showing log info)
  - Running this will create and start all required containers. In addition to that, the database will be populated with all required data and users.
+ - To stop all containers (mongo / angular / spring), run: 'docker stop $(docker ps -a -q)'
 
 # MongoDB access
  - Run 'docker exec -it mongo mongo' to connect to "mongo" (name as defined in docker-compose) container and access mongo shell
