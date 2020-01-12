@@ -1,5 +1,6 @@
 package com.server.resources
 
+import com.mongodb.MongoClient
 import com.server.repository.user.User
 import com.server.repository.user.UserRepository
 import org.springframework.beans.factory.annotation.Autowired

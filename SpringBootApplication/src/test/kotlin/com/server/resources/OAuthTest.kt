@@ -7,6 +7,7 @@ import com.server.repository.client.ClientRepository
 import com.server.repository.user.User
 import com.server.repository.user.UserRepository
 import org.hamcrest.Matchers.not
+import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
@@ -49,7 +50,6 @@ class OAuthTest : BaseResourceTest() {
         private const val username = "user@user.com"
         private const val password = "123456"
         private const val clientId = "5e051ea44f64347c8530c264"
-        private const val clientIdSecond = "5e051ea44f64347c8530c265"
         private const val clientSecret = "client-secret"
         private const val redirectUri = "https://www.example.com"
     }
@@ -76,14 +76,14 @@ class OAuthTest : BaseResourceTest() {
         client.id = clientId
         assertNotNull(clientRepository.save(client))
         assertEquals(1, clientRepository.count())
+    }
 
-        val secondClient = Client(null,
-                scope = listOf("app"),
-                grantTypes = listOf("password", "refresh_token", "client_credentials", "authorization_code"),
-                redirectUris = listOf(redirectUri, "http://localhost:4200"))
-        secondClient.id = clientIdSecond
-        assertNotNull(clientRepository.save(secondClient))
-        assertEquals(2, clientRepository.count())
+    @After
+    fun cleanup() {
+        userRepository.deleteAll()
+        clientRepository.deleteAll()
+        accessTokenRepository.deleteAll()
+        refreshTokenRepository.deleteAll()
     }
 
     @Test

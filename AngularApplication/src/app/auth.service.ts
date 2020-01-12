@@ -11,7 +11,7 @@ export class AuthService extends BaseService {
   private redirectUri = 'http://localhost:4200';
   private tokenUri = this.baseUrl + '/oauth/token';
   private authUri = this.baseUrl + '/oauth/authorize';
-  private clientId = '5e051ea44f64347c8530c265';
+  private clientId = '5e051ea44f64347c8530c268';
   
   constructor(private http: HttpClient, private router: Router) {
     super()

@@ -5,9 +5,14 @@ crypto:
 spring:
   data:
     mongodb:
-      username: productionuser
-      password: productionpassword
-      uri: mongodb://domain.com
-      #replica set uri: mongodb://database1.domain.com,database2.domain.com,database3.domain.com/?ssl=true&replicaSet=replicasetname
-      database: productiondatabase
-      port: 27017
+      # when using MongoDB in Docker container, 'uri' config must be used (other parameters don't work)
+      uri: mongodb://productionuser:dsfaere56e4Uxo@mongo/database #mongodb://localhost
+#spring:
+#  data:
+#    mongodb:
+#      username: productionuser
+#      password: productionpassword
+#      uri: mongodb://domain.com
+#      #replica set uri: mongodb://database1.domain.com,database2.domain.com,database3.domain.com/?ssl=true&replicaSet=replicasetname
+#      database: productiondatabase
+#      port: 27017

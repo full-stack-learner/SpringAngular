@@ -1,0 +1,9 @@
+[
+	{
+      "_id" : { "$oid": "5e051ea44f64347c8530c267" },
+	    "name" : "Testuser",
+	    "username" : "test@test.com",
+			"password" : "$2a$04$AWXXlGIG4BQiUw1G33b9bOEi1XCRvsVV0848BRs3sRHo86.OiU2KC",
+			"enabled": true
+	}
+]

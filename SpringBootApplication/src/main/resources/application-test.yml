@@ -10,3 +10,4 @@ spring:
       uri: mongodb://localhost
       port: 27017
       database: testdatabase
+      authentication-database: testdatabase

@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.server</groupId>
-	<artifactId>server</artifactId>
+	<artifactId>springbootapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>Server</name>
+	<packaging>jar</packaging>
+	<name>springbootapp</name>
 	<description>Spring Boot Server Base</description>
 
 	<properties>

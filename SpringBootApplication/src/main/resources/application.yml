@@ -3,6 +3,16 @@ spring:
     active: test
   application:
     name: Server
+  data:
+    mongodb:
+      # when using MongoDB in Docker container, 'uri' config must be used
+      #username: testuser
+      #password: 1234
+      uri: mongodb://testuser:1234@mongo/testdatabase #mongodb://localhost
+      #port: 27017
+      #database: testdatabase
+      #host: mongo
+      #authentication-database: testdatabase
 server:
   ssl:
     key-store: classpath:static/keystore.jks
@@ -10,6 +20,9 @@ server:
     key-store-type: jks
     key-alias: key_alias
     key-password: key_password
-    enabled: false
-  #port: 8443
+    enabled: false #set to true here to enable
+    #port: 8443
+crypto:
+  algorithm: AES
+  key: 12345678912345678912345678955555
 

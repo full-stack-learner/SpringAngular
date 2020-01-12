@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    hostname: mongo
+    volumes:
+          - ./data/db:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=rootuser
+      - MONGO_INITDB_ROOT_PASSWORD=rootpassword
+    ports:
+      - 27017:27017
+    #command: #--logpath=/dev/null # --quiet
+
+  # creates a database and pre-fills it with some data for testing
+  mongo-init:
+    build: ./mongo-init # executes the mongo init script with it's own Dockerfile
+    depends_on:
+      - mongo
+
+  app:
+    build: ./ # builds the "app" with it's own Dockerfile
+    image: philjay/springbootapp
+    environment:
+       - "SPRING_PROFILES_ACTIVE=production" # use Spring 'production' profile when deployed
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongo-init

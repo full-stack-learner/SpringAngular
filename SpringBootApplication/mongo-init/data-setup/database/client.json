@@ -1,0 +1,24 @@
+[
+	{
+	  "_id" : { "$oid": "5e051ea44f64347c8530c268" },
+    "accessTokenValidity" : 3600,
+    "refreshTokenValidity" : 315569520,
+    "autoApprove" : true,
+    "resources" : [],
+    "redirectUris" : [
+        "https://www.example.com",
+        "http://localhost:4200",
+				"http://localhost:4200/"
+    ],
+    "scope" : [
+        "app"
+    ],
+    "grantTypes" : [
+        "password",
+        "refresh_token",
+        "client_credentials",
+        "authorization_code"
+    ],
+    "grantedAuthorities" : []
+	}
+]

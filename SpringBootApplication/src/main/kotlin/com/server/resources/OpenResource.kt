@@ -10,6 +10,6 @@ class OpenResource {
 
     @RequestMapping(method = [RequestMethod.GET])
     fun get(): String {
-        return "Open"
+        return "Open2"
     }
 }
