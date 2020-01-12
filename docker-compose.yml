@@ -5,7 +5,7 @@ services:
     container_name: mongo
     hostname: mongo
     volumes:
-          - ./data/db:/data/db
+          - ./mongodb/data/db:/data/db
     environment:
       - MONGO_INITDB_ROOT_USERNAME=rootuser
       - MONGO_INITDB_ROOT_PASSWORD=rootpassword
@@ -15,12 +15,13 @@ services:
 
   # creates a database and pre-fills it with some data for testing
   mongo-init:
-    build: ./mongo-init # executes the mongo init script with it's own Dockerfile
+    build: ./mongodb/mongo-init # executes the mongo init script with it's own Dockerfile
     depends_on:
       - mongo
 
-  app:
-    build: ./ # builds the "app" with it's own Dockerfile
+  spring:
+    container_name: spring
+    build: ./SpringBootApplication # location of the Dockerfile for Spring
     image: philjay/springbootapp
     environment:
        - "SPRING_PROFILES_ACTIVE=production" # use Spring 'production' profile when deployed
@@ -28,3 +29,14 @@ services:
       - 8080:8080
     depends_on:
       - mongo-init
+
+  # angular:
+  #   container_name: angular
+  #   build: ./AngularApplication # location of the Dockerfile for Angular
+  #   volumes:
+  #     - .:/app
+  #     - /app/node_modules
+  #   ports:
+  #     - 4200:4200
+  #   depends_on:
+  #     - mongo-init

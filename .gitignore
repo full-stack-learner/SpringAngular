@@ -1,3 +1,6 @@
 # System Files
 .DS_Store
 Thumbs.db
+
+### MongoDB data storage for local testing ###
+mongodb/data/

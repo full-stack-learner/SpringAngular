@@ -1,9 +1,6 @@
 .DS_Store
 HELP.md
 
-### MongoDB data storage for local testing ###
-data/
-
 ### Maven ###
 target/
 pom.xml.tag
