@@ -29,11 +29,13 @@ Pre-configured **Spring** implementation with out of the box support for OAuth2,
  - Components for Login, User creation, User listing / deletion
 
 # Run
- - Package the application: './mvnw package'
- - Create a docker image: 'docker build -t philjay/springangular .' (optional because this is also done by 'build:'' in docker-compose in this case)
- - Run docker-compose: 'docker-compose up -d --build --force-recreate' (remove -d for showing log info)
- - Running this will create and start all required containers. In addition to that, the database will be populated with all required data and users.
- - To stop all containers (mongo / angular / spring), run: 'docker stop $(docker ps -a -q)'
+ - Package the application: `./mvnw package`
+ - Create a docker image: `docker build -t philjay/springangular .` (optional because this is also done by 'build:'' in docker-compose in this case)
+ - Run docker-compose: `docker-compose up -d` (remove -d for showing log info)
+ - Force build and recreation: add `--build --force-recreate` parameters to your docker-compose command
+ - To run e.g. on remote host: add `-H "ssh://youruser@your.host"` parameter (SSH access required, docker & docker-compose must be installed on remote machine, make sure you have your user permissions configured correctly - user should be in docker group, SSH MaxSessions can also interfere - configure via sshd_conf - set e.g. to 30)
+
+ Running this will create and start all required containers. In addition to that, the database will be populated with all required data and users. To stop all containers (mongo / angular / spring), run: `docker stop $(docker ps -a -q)`
 
 # MongoDB access
- - Run 'docker exec -it mongo mongo' to connect to "mongo" (name as defined in docker-compose) container and access mongo shell
+ - Run `docker exec -it mongo mongo` to connect to "mongo" (name as defined in docker-compose) container and access mongo shell

@@ -4,6 +4,7 @@ services:
     image: mongo
     container_name: mongo
     hostname: mongo
+    restart: always # avoid downtime
     volumes:
           - ./mongodb/data/db:/data/db
     environment:
@@ -20,9 +21,11 @@ services:
       - mongo
 
   spring:
-    container_name: spring
     build: ./SpringBootApplication # location of the Dockerfile for Spring
+    restart: always # avoid downtime
     image: philjay/springbootapp
+    container_name: spring
+    restart: always
     environment:
        - "SPRING_PROFILES_ACTIVE=production" # use Spring 'production' profile when deployed
     ports:
@@ -31,8 +34,9 @@ services:
       - mongo-init
 
   angular:
-    container_name: angular
     build: ./AngularApplication # location of the Dockerfile for Angular
+    container_name: angular
+    restart: always # avoid downtime
     ports:
       - 4200:4200
     depends_on:
