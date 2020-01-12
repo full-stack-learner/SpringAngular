@@ -29,8 +29,8 @@ Pre-configured **Spring** implementation with out of the box support for OAuth2,
  - Components for Login, User creation, User listing / deletion
 
 # Run
- - Package the application: `./mvnw package`
- - Create a docker image: `docker build -t philjay/springangular .` (optional because this is also done by 'build:'' in docker-compose in this case)
+ - Package the Spring application (navigate to folder first): `./mvnw package`
+ - Optional: (Create a docker image: `docker build -t philjay/springangular .` - optional because this is also done by 'build:'' in docker-compose in this case)
  - Run docker-compose: `docker-compose up -d` (remove -d for showing log info)
  - Force build and recreation: add `--build --force-recreate` parameters to your docker-compose command
  - To run e.g. on remote host: add `-H "ssh://youruser@your.host"` parameter (SSH access required, docker & docker-compose must be installed on remote machine, make sure you have your user permissions configured correctly - user should be in docker group, SSH MaxSessions can also interfere - configure via sshd_conf - set e.g. to 30)
