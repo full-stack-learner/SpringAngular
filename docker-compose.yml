@@ -30,13 +30,10 @@ services:
     depends_on:
       - mongo-init
 
-  # angular:
-  #   container_name: angular
-  #   build: ./AngularApplication # location of the Dockerfile for Angular
-  #   volumes:
-  #     - .:/app
-  #     - /app/node_modules
-  #   ports:
-  #     - 4200:4200
-  #   depends_on:
-  #     - mongo-init
+  angular:
+    container_name: angular
+    build: ./AngularApplication # location of the Dockerfile for Angular
+    ports:
+      - 4200:4200
+    depends_on:
+      - mongo-init
