@@ -29,7 +29,12 @@ Pre-configured **Spring** implementation with out of the box support for OAuth2,
  - UI using Angular Material
  - Components for Login, User creation, User listing / deletion
 
-# Run
+# Run locally
+ - Start your local MongoDB instance
+ - Run the Spring application from your IDE (e.g. IntelliJ)
+ - Run the Angular application via `ng serve` in terminal (optionally add `--configuration=production` to run locally with production environment parameters)
+
+# Run via Docker (local or remote)
  - Package the Spring application using Maven (navigate to folder first): `./mvnw package` or `mvn package`
  - *Optional: (Create a docker image: `docker build -t philjay/springangular .` - optional because this is also done by 'build:'' in docker-compose in this case)*
  - Run docker-compose: `docker-compose up -d` (remove -d for showing log info)
