@@ -6,7 +6,7 @@ services:
     hostname: mongo
     restart: always # avoid downtime
     volumes:
-          - ./mongodb/data/db:/data/db
+          - ./mongodb/data/db:/data/db # data volume for mongodb (ignored by git, folder next to mongo-init)
     environment:
       - MONGO_INITDB_ROOT_USERNAME=rootuser
       - MONGO_INITDB_ROOT_PASSWORD=rootpassword
