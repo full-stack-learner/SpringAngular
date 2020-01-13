@@ -29,7 +29,7 @@ Pre-configured **Spring** implementation with out of the box support for OAuth2,
  - Components for Login, User creation, User listing / deletion
 
 # Run
- - Package the Spring application (navigate to folder first): `./mvnw package`
+ - Package the Spring application using Maven (navigate to folder first): `./mvnw package` or `mvn package`
  - Optional: (Create a docker image: `docker build -t philjay/springangular .` - optional because this is also done by 'build:'' in docker-compose in this case)
  - Run docker-compose: `docker-compose up -d` (remove -d for showing log info)
  - Force build and recreation: add `--build --force-recreate` parameters to your docker-compose command
