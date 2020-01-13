@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export abstract class BaseService {
 
-  protected baseUrl = 'http://localhost:8080';
+  // the base url for our application (server IP address in production, localhost in development)
+  // the url via which we can access Spring backend
   protected tokenKey = 'token';
 
   constructor() { }

@@ -7,6 +7,9 @@
     "resources" : [],
     "redirectUris" : [
         "https://www.example.com",
+				"http://46.101.159.55:4200",
+				"http://46.101.159.55:80",
+				"http://46.101.159.55",
         "http://localhost:4200",
 				"http://localhost:4200/"
     ],

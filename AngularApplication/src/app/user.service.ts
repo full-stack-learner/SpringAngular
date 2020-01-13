@@ -3,14 +3,15 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { User } from './user';
 import { Observable, of } from 'rxjs';
 import { BaseService } from './base.service';
+import { environment } from './../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService extends BaseService {
 
-  private usersUrl = this.baseUrl + '/api/user';
-  private meUrl = this.baseUrl + '/me';
+  private usersUrl = environment.apiUrl + '/api/user';
+  private meUrl = environment.apiUrl + '/me';
  
   constructor(private http: HttpClient) {
     super()

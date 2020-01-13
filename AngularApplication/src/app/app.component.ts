@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 export class AppComponent {
   title = 'Angular Frontend | Spring Backend';
 
-  constructor(private service: AuthService) {
+  constructor(public service: AuthService) {
     
   }
  

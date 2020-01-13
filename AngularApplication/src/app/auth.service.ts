@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import {Router} from "@angular/router";
 import { BaseService } from './base.service';
+import { environment } from './../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService extends BaseService {
 
-  private redirectUri = 'http://localhost:4200';
-  private tokenUri = this.baseUrl + '/oauth/token';
-  private authUri = this.baseUrl + '/oauth/authorize';
+  private tokenUri = environment.apiUrl + '/oauth/token';
+  private authUri = environment.apiUrl + '/oauth/authorize';
   private clientId = '5e051ea44f64347c8530c268';
   
   constructor(private http: HttpClient, private router: Router) {
@@ -38,14 +38,14 @@ export class AuthService extends BaseService {
   }
 
   authorize() {
-    window.location.href = this.authUri + '?response_type=code&client_id=' + this.clientId + '&redirect_uri='+ this.redirectUri;
+    window.location.href = this.authUri + '?response_type=code&client_id=' + this.clientId + '&redirect_uri='+ environment.redirectUri;
   }
 
   getToken(code, navigateTo) {
 
     const params = new HttpParams()
     .set('code', code)
-    .set('redirect_uri', this.redirectUri)
+    .set('redirect_uri', environment.redirectUri)
     .set('grant_type', 'authorization_code');
 
     const headers = {

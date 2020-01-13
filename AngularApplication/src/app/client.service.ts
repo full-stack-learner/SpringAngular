@@ -3,13 +3,14 @@ import { BaseService } from './base.service';
 import { HttpClient } from '@angular/common/http';
 import { Client } from './client';
 import { Observable } from 'rxjs';
+import { environment } from './../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService extends BaseService{
 
-  private clientsUrl = this.baseUrl + '/api/client';
+  private clientsUrl = environment.apiUrl + '/api/client';
 
   constructor(private http: HttpClient) {
      super()

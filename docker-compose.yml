@@ -38,6 +38,7 @@ services:
     container_name: angular
     restart: always # avoid downtime
     ports:
-      - 4200:4200
+      - 4200:4200 # local execution via ng Serve
+      - 80:80 # when running in nginx
     depends_on:
       - mongo-init
