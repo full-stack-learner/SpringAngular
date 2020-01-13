@@ -32,7 +32,7 @@ Pre-configured **Spring** implementation with out of the box support for OAuth2,
 # Run locally
  - Start your local MongoDB instance
  - Run the Spring application from your IDE (e.g. IntelliJ)
- - Run the Angular application via `ng serve` in terminal (optionally add `--configuration=production` to run locally with production environment parameters)
+ - Run the Angular application via `ng serve` in terminal (optionally add `--configuration=production` to run with production environment parameters)
 
 # Run via Docker (local or remote)
  - Package the Spring application using Maven (navigate to folder first): `./mvnw package` or `mvn package`
