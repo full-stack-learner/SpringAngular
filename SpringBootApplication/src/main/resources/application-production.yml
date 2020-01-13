@@ -6,6 +6,7 @@ spring:
   data:
     mongodb:
       # when using MongoDB in Docker container, 'uri' config must be used (other parameters don't work)
+      # change username and password for "actual" production deployment
       uri: mongodb://productionuser:dsfaere56e4Uxo@mongo/database #mongodb://localhost
 #spring:
 #  data:
