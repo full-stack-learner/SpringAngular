@@ -1,6 +1,7 @@
 # The script does the following:
 # For each folder inside the data-setup folder, it reads all folder names and creates a database with the name of the folder.
 # For each json file, it creates a collection with the name of the file and persists all json objects contained in the file.
+# This is a convenient way of "pre-filling" your database with data
 
 cd /data-setup
 pattern="./"

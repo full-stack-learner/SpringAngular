@@ -6,6 +6,7 @@ Pre-configured **Spring** implementation with out of the box support for OAuth2,
  - Frontend using Angular
  - Backend using Spring 🍃
  - MongoDB database
+ - Optional: Pre-populating database with data via Docker & sh script
 
 # Spring Features (Backend)
  - Written in **Kotlin**
@@ -22,12 +23,13 @@ Pre-configured **Spring** implementation with out of the box support for OAuth2,
  - Repository for OAuth2 Client
  - Repository for AuthorizationCode
  - **Well tested**
- - Maven
+ - Maven build
 
 # Angular Features (Frontend)
  - Authenticating with the backend (OAuth2 password & authorization_code)
  - UI using Angular Material
  - Components for Login, User creation, User listing / deletion
+ - Run using `ng serve` during development, or `nginx` in production
 
 # Run locally
  - Start your local MongoDB instance
@@ -41,7 +43,13 @@ Pre-configured **Spring** implementation with out of the box support for OAuth2,
  - Force build and recreation: add `--build --force-recreate` parameters to your docker-compose command
  - To run e.g. on remote host: add `-H "ssh://youruser@your.host"` parameter (SSH access required, docker & docker-compose must be installed on remote machine, make sure you have your user permissions configured correctly - user should be in docker group, SSH MaxSessions can also interfere - configure via sshd_conf - set e.g. to 30)
 
- Running this will create and start all containers included in the docker-compose.yml file. Additionally, the database will be populated with the required data and users. To stop all containers, run: `docker stop $(docker ps -a -q)`
+ Running this will create and start all containers included in the docker-compose.yml file. To stop all containers, run: `docker stop $(docker ps -a -q)`
 
 # MongoDB access
  - Run `docker exec -it mongo mongo` to connect to "mongo" container (name as defined in docker-compose) and access mongo shell
+ - Authenticate e.g. using the root-user and root-password defined in docker-compose.yml
+
+# Setup script (setup.sh)
+ - Executed by the mongo-init container / service in docker-compose.yml file
+ - Creates the MongoDB user used by Spring to access the database
+ - *Optional: Can populate the database with preconfigured data (folders & .json files) specified in (mongo-init/data-setup)*
