@@ -3,6 +3,7 @@ import { ClientService } from '../client.service';
 import { Client } from '../client';
 import { Observable } from 'rxjs';
 import { DataSource } from '@angular/cdk/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-list',
@@ -18,14 +19,18 @@ export class ClientListComponent implements OnInit {
   }
  
   ngOnInit() {
-    this.dataSource = new ClientDataSource(this.clientsService);
+    this.reload();
   }
 
   delete(id) {
     this.clientsService.delete(id).subscribe(
-      data => window.location.reload(),
+      data => this.reload(),
       err => alert('Error deleting ' + id)
     ); 
+  }
+
+  reload() {
+    this.dataSource = new ClientDataSource(this.clientsService);
   }
 }
 

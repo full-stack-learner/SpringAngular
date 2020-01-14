@@ -23,7 +23,6 @@ export class CreateClientComponent implements OnInit {
     let client = new Client()
     client.secret = secret;
     client.scope = ['public'];
-    client.secretRequired = false;
     
     this.clientService.create(client).subscribe(
       data => {

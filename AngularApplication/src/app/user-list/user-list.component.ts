@@ -3,6 +3,7 @@ import { User } from '../user';
 import { UserService } from '../user.service'
 import { Observable } from 'rxjs';
 import { DataSource } from '@angular/cdk/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -14,18 +15,22 @@ export class UserListComponent implements OnInit {
   dataSource: UserDataSource;
   displayedColumns = ['id', 'name', 'username', 'password', 'delete'];
  
-  constructor(private userService: UserService) {
+  constructor(private router: Router, private userService: UserService) {
   }
  
   ngOnInit() {
-    this.dataSource = new UserDataSource(this.userService);
+    this.reload();
   }
 
   delete(id) {
     this.userService.delete(id).subscribe(
-      data => window.location.reload(),
+      data => this.reload(),
       err => alert('Error deleting ' + id)
     ); 
+  }
+
+  reload() {
+    this.dataSource = new UserDataSource(this.userService);
   }
 }
 
