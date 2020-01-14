@@ -17,6 +17,8 @@ services:
   # creates a database and pre-fills it with some data for testing
   mongo-init:
     build: ./mongodb/mongo-init # executes the mongo init script with it's own Dockerfile
+    image: mongo-init
+    container_name: mongo-init
     depends_on:
       - mongo
 
