@@ -1,20 +1,32 @@
 
 <mat-sidenav-container>
-  <mat-sidenav  #sidenav role="navigation">
+  <mat-sidenav  #sidenav role="navigation" (click)="sidenav.toggle()">
    <mat-nav-list>
-    <a mat-list-item>
-      <mat-icon class="icon">input</mat-icon>
-      <span class="label">Login</span>
-    </a>
-    <a mat-list-item>
+    <a mat-list-item routerLink="/">
       <mat-icon class="icon">home</mat-icon>
         <span class="label">Home</span>
     </a>
-    <a mat-list-item>
-      <mat-icon class="icon">dashboard</mat-icon>
-      <span class="label">Dashboard</span>
+    <a *ngIf="!service.loggedIn()" mat-list-item routerLink="/login">
+      <mat-icon class="icon">input</mat-icon>
+      <span class="label">Login</span>
     </a>
-    <a  mat-list-item type="button">
+    <a *ngIf="service.loggedIn()" mat-list-item routerLink="/me">
+      <mat-icon class="icon">person</mat-icon>
+      <span class="label">Me</span>
+    </a>
+    <a *ngIf="service.loggedIn()" mat-list-item routerLink="/users">
+      <mat-icon class="icon">list</mat-icon>
+      <span class="label">Users</span>
+    </a>
+    <a *ngIf="service.loggedIn()" mat-list-item routerLink="/clients">
+      <mat-icon class="icon">list</mat-icon>
+      <span class="label">Clients</span>
+    </a>
+    <a *ngIf="!service.loggedIn()" mat-list-item routerLink="/createuser">
+      <mat-icon class="icon">add</mat-icon>
+      <span class="label">Signup</span>
+    </a>
+    <a *ngIf="service.loggedIn()" mat-list-item type="button" (click)="logout()">
       <mat-icon class="icon">input</mat-icon>
       <span class="label">LogOut</span>
     </a>
@@ -23,7 +35,7 @@
   <mat-sidenav-content>
     <mat-toolbar color="primary">
      <div fxHide.gt-xs>
-       <button mat-icon-button>
+       <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
     </div>
