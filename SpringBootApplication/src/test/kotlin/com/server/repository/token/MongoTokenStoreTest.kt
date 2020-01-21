@@ -5,6 +5,7 @@ import com.server.repository.auth.token.AccessTokenRepository
 import com.server.repository.auth.token.RefreshTokenRepository
 import com.server.repository.user.User
 import com.server.util.TestCreator
+import com.server.util.toDate
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
@@ -12,6 +13,7 @@ import org.junit.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken
 import org.springframework.security.oauth2.common.DefaultOAuth2RefreshToken
+import java.time.LocalDateTime
 
 class MongoTokenStoreTest : BaseTokenRepositoryTest() {
 
@@ -48,6 +50,7 @@ class MongoTokenStoreTest : BaseTokenRepositoryTest() {
     fun testStoreLoadRemoveAccessToken() {
 
         val token = DefaultOAuth2AccessToken("at-value")
+        token.expiration = LocalDateTime.now().minusSeconds(1).toDate() // expired -> leads to deletion
         val refreshToken = DefaultOAuth2RefreshToken("rt-value")
         token.refreshToken = refreshToken
         val auth = TestCreator.createAuthentication(user, clientId)
