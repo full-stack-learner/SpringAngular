@@ -2,10 +2,10 @@
 Pre-configured **Spring** implementation with out of the box support for OAuth2, MongoDB, REST endpoints, ... with frontend written in **Angular**.
 
 # General Features
- - Docker 🐳 (docker-compose in place for "one-click" deployment on local and remote host)
- - Frontend using Angular
- - Backend using Spring 🍃
- - MongoDB database
+ - [Docker](https://www.docker.com/) 🐳 (docker-compose in place for "one-click" deployment on local and remote host)
+ - Frontend using [Angular](https://angular.io/)
+ - Backend using [Spring Boot](https://spring.io/) 🍃
+ - [MongoDB](https://www.mongodb.com/) database
  - Optional: Pre-populating database with data via Docker & sh script
 
 # Spring Features (Backend)
