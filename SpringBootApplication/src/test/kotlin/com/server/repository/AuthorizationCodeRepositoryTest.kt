@@ -1,6 +1,7 @@
 package com.server.repository
 
 import com.server.MySpringBootTest
+import com.server.auth.userdetails.OAuthUser
 import com.server.repository.auth.AuthenticationSerializer
 import com.server.repository.auth.code.AuthorizationCode
 import com.server.repository.auth.code.AuthorizationCodeRepository
@@ -38,7 +39,9 @@ class AuthorizationCodeRepositoryTest {
     @Test
     fun testStoreLoad() {
 
-        val auth = AuthenticationSerializer.serialize(TestCreator.createAuthentication(User("username", "pw"), "clientId"))
+        val oAuthUser = User("username", "pw").oAuth
+
+        val auth = AuthenticationSerializer.serialize(TestCreator.createAuthentication(oAuthUser, "clientId"))
         assertNotNull(auth)
 
         if (auth != null) {

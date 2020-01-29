@@ -39,7 +39,7 @@ class OAuthClientDetailsService : ClientDetailsService {
             }
             throw ClientRegistrationException("No client found for id $clientId")
         } else {
-            return client
+            return client.oAuth
         }
     }
 }

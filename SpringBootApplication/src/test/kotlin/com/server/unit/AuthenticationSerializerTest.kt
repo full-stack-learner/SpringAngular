@@ -13,7 +13,7 @@ class AuthenticationSerializerTest {
     @Test
     fun testSerializeDeserialize() {
 
-        val user = User("username", "pw")
+        val user = User("username", "pw").oAuth
         val auth = createAuthentication(user, clientId)
 
         val serializedAuth = AuthenticationSerializer.serialize(auth)

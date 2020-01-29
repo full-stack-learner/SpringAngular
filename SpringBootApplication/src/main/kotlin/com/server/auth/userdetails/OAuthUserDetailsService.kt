@@ -17,7 +17,7 @@ class OAuthUserDetailsService : UserDetailsService {
             // returning null from UserDetailsService is not allowed
             throw UsernameNotFoundException("No user found for username $username")
         } else {
-            return user
+            return user.oAuth
         }
     }
 }

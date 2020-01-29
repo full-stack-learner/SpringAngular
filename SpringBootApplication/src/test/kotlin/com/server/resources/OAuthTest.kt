@@ -104,6 +104,7 @@ class OAuthTest : BaseResourceTest() {
                 .andExpect(jsonPath("$.credentialsNonExpired").doesNotExist()) // not returned by endpoint
                 .andExpect(jsonPath("$.accountNonExpired").doesNotExist()) // not returned by endpoint
                 .andExpect(jsonPath("$.accountNonLocked").doesNotExist()) // not returned by endpoint
+                .andExpect(jsonPath("$.oAuth").doesNotExist()) // not returned by endpoint
                 .andExpect(jsonPath("$.password").exists())
                 .andExpect(jsonPath("$.password").value(not(password))) // returned password is encoded
     }

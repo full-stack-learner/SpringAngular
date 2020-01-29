@@ -46,7 +46,7 @@ class UserRepositoryTest {
         assertEquals(user.id, loaded?.id)
         assertEquals(user.username, loaded?.username)
         assertEquals(user.password, loaded?.password)
-        assertEquals(authorities.size, loaded?.authorities?.size)
+        assertEquals(authorities.size, loaded?.grantedAuthorities?.size)
 
         assertEquals(user.id, userRepository.findByUsername(user.username)?.id)
     }

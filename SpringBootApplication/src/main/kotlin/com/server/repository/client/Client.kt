@@ -1,75 +1,36 @@
 package com.server.repository.client
 
-import com.server.auth.CustomSimpleGrantedAuthority
+import com.fasterxml.jackson.annotation.JsonIgnore
+import com.server.auth.clientdetails.OAuthClient
 import com.server.repository.MongoObject
-import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.oauth2.provider.ClientDetails
 
 class Client(var secret: String?,
              /** The time in seconds the access tokens of the client are valid, default = 3600 (1 hour) */
-             private val accessTokenValidity: Int = 3600,
-             /** The time in seconds the refresh tokens of the client are valid, default = 315569520 / 10 years (0 = never expires) */
-             private val refreshTokenValidity: Int = 315569520,
-             private val autoApprove: Boolean = true,
-             private val resources: List<String> = listOf(),
-             private val redirectUris: List<String> = listOf(),
-             private val scope: List<String>,
-             private val grantTypes: List<String> = listOf(),
-             private val grantedAuthorities: List<String> = listOf()) : MongoObject(), ClientDetails {
+             val accessTokenValidity: Int = 3600,
+             /** The time in seconds the refresh tokens of the client are valid, default = 315569520 / 10 years (0 or null = never expires) */
+             val refreshTokenValidity: Int? = 315569520,
+             val resources: List<String> = listOf(),
+             val redirectUris: List<String> = listOf(),
+             val scope: List<String>,
+             val autoApproveScopes: List<String> = listOf(),
+             val grantTypes: List<String> = listOf(),
+             val grantedAuthorities: List<String> = listOf()) : MongoObject() {
 
-    companion object {
-        private const val serialVersionUID = -2918540686806255887L
+    @get:JsonIgnore
+    val oAuth: ClientDetails
+        get() = OAuthClient(this)
+
+    override fun equals(other: Any?): Boolean {
+        if (other is Client) {
+            return id == other.id && secret == other.secret
+        }
+        return false
     }
 
-    override fun isSecretRequired(): Boolean {
-        return !secret.isNullOrEmpty()
-    }
-
-    override fun getAdditionalInformation(): MutableMap<String, Any> {
-        return mutableMapOf()
-    }
-
-    override fun getAccessTokenValiditySeconds(): Int {
-        return accessTokenValidity
-    }
-
-    override fun getResourceIds(): MutableSet<String> {
-        return resources.toMutableSet()
-    }
-
-    override fun getClientId(): String {
-        return id
-    }
-
-    override fun isAutoApprove(scope: String?): Boolean {
-        return autoApprove
-    }
-
-    override fun getAuthorities(): List<GrantedAuthority> {
-        return grantedAuthorities.map { CustomSimpleGrantedAuthority(it) }
-    }
-
-    override fun getRefreshTokenValiditySeconds(): Int {
-        return refreshTokenValidity
-    }
-
-    override fun getClientSecret(): String? {
-        return secret
-    }
-
-    override fun getRegisteredRedirectUri(): MutableSet<String> {
-        return redirectUris.toMutableSet()
-    }
-
-    override fun isScoped(): Boolean {
-        return true
-    }
-
-    override fun getScope(): MutableSet<String> {
-        return scope.toMutableSet()
-    }
-
-    override fun getAuthorizedGrantTypes(): MutableSet<String> {
-        return grantTypes.toMutableSet()
+    override fun hashCode(): Int {
+        var result = id.hashCode()
+        result = 31 * result + (secret?.hashCode() ?: 0)
+        return result
     }
 }

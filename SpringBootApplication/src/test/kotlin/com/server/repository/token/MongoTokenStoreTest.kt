@@ -27,7 +27,7 @@ class MongoTokenStoreTest : BaseTokenRepositoryTest() {
     private lateinit var refreshTokenRepository: RefreshTokenRepository
 
     companion object {
-        private val user = User("username", "pw")
+        private val user = User("username", "pw").oAuth
     }
 
     @Before

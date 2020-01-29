@@ -10,7 +10,6 @@ import org.junit.runner.RunWith
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner
 import java.time.LocalDateTime
-import java.util.*
 
 @RunWith(SpringRunner::class)
 @SpringBootTest
@@ -22,15 +21,14 @@ abstract class BaseTokenRepositoryTest {
     protected val authId = "authId"
 
     protected fun createAccessToken(token: String = "at", refreshToken: String = "rt", expiration: LocalDateTime = LocalDateTime.now()): MongoAccessToken {
-        val user = User(username, "pw")
-        val date = Date()
+        val user = User(username, "pw").oAuth
         val refreshTokenExpiration = LocalDateTime.now()
         val authObject = createAuthentication(user, clientId)
         return MongoAccessToken(token, AuthenticationSerializer.serialize(authObject), username, clientId, expiration, refreshToken, refreshTokenExpiration, authId, "bearer", mutableSetOf("app"), null)
     }
 
     protected fun createRefreshToken(token: String = "rt"): MongoRefreshToken {
-        val user = User(username, "pw")
+        val user = User(username, "pw").oAuth
         val authObject = createAuthentication(user, clientId)
         val refreshTokenExpiration = LocalDateTime.now()
         return MongoRefreshToken(token, AuthenticationSerializer.serialize(authObject), username, clientId, refreshTokenExpiration)

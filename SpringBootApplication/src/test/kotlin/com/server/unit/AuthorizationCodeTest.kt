@@ -1,5 +1,6 @@
 package com.server.unit
 
+import com.server.auth.userdetails.OAuthUser
 import com.server.repository.auth.AuthenticationSerializer
 import com.server.repository.auth.code.AuthorizationCode
 import com.server.repository.user.User
@@ -36,7 +37,7 @@ class AuthorizationCodeTest {
     fun testAuthentication() {
 
         val clientId = "clientId"
-        val user = User("user", "pw")
+        val user = User("user", "pw").oAuth
         val auth = AuthenticationSerializer.serialize(TestCreator.createAuthentication(user, clientId))
         assertNotNull(auth)
 
@@ -44,9 +45,9 @@ class AuthorizationCodeTest {
             val o = AuthorizationCode(code, auth)
             val authentication = o.authentication
             assertNotNull(authentication)
-            assertTrue(authentication?.userAuthentication?.principal is User)
+            assertTrue(authentication?.userAuthentication?.principal is OAuthUser)
 
-            val authUser = authentication?.userAuthentication?.principal as? User
+            val authUser = authentication?.userAuthentication?.principal as? OAuthUser
             assertNotNull(authUser)
 
             if (authUser != null) {

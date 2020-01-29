@@ -41,11 +41,11 @@ class ClientRepositoryTest {
         val loaded = clientRepository.findByIdOrNull(client.id)
         assertNotNull(loaded)
         assertEquals(client.id, loaded?.id)
-        assertEquals(client.registeredRedirectUri.size, loaded?.registeredRedirectUri?.size)
-        assertEquals(client.scope.size, loaded?.scope?.size)
-        assertTrue(loaded?.isAutoApprove(null) == true)
-        assertFalse(loaded?.accessTokenValiditySeconds == 0)
-        assertTrue(loaded?.refreshTokenValiditySeconds == 315569520)
-        assertEquals(client.clientSecret, loaded?.clientSecret)
+        assertEquals(client.redirectUris.size, loaded?.redirectUris?.size)
+        assertEquals(client.scope, loaded?.scope)
+        assertEquals(client.autoApproveScopes, loaded?.autoApproveScopes)
+        assertFalse(loaded?.accessTokenValidity == 0)
+        assertTrue(loaded?.refreshTokenValidity == 315569520)
+        assertEquals(client.secret, loaded?.secret)
     }
 }
