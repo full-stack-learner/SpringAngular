@@ -26,12 +26,12 @@ Pre-configured **Spring** implementation with out of the box support for OAuth2,
  - Maven build
 
 # Angular Features (Frontend)
- - Authenticating with the backend (OAuth2 password & authorization_code)
- - UI using Angular Material
- - Components for Login, User creation, User listing / deletion
- - Run using `ng serve` during development, or `nginx` in production
+ - Authentication with the backend (OAuth2 password & authorization_code)
+ - UI using [Angular Material](https://material.angular.io/)
+ - Existing components for Login, User creation, User listing / deletion
+ - Run Angular app using `ng serve` during (local) development, or `nginx` in production (see Dockerfile)
 
-# Run locally
+# Run the stack locally
  - Start your local MongoDB instance
  - Run the Spring application from your IDE (e.g. IntelliJ)
  - Make sure you have Angular CLI installed, then run the Angular application via `ng serve` in terminal (optionally add `--configuration=production` to run with production environment parameters)
@@ -50,6 +50,7 @@ Pre-configured **Spring** implementation with out of the box support for OAuth2,
  - Authenticate e.g. using the root-user and root-password defined in docker-compose.yml
 
 # Setup script (setup.sh)
+ - A convenience setup script performing pre-config operations
  - Executed by the mongo-init container / service in docker-compose.yml file
  - Creates the MongoDB user used by Spring to access the database
  - *Optional: Can populate the database with preconfigured data (folders & .json files) specified in (mongo-init/data-setup)*
