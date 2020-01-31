@@ -2,7 +2,7 @@ package com.server.unit
 
 import com.server.repository.auth.AuthenticationSerializer
 import com.server.repository.user.User
-import com.server.util.TestCreator.createAuthentication
+import com.server.extensions.TestCreator.createAuthentication
 import org.junit.Assert.*
 import org.junit.Test
 

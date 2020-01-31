@@ -1,5 +1,6 @@
 package com.server.auth.clientdetails
 
+import com.server.auth.Scope
 import com.server.repository.client.ClientRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.repository.findByIdOrNull
@@ -15,7 +16,7 @@ class OAuthClientDetailsService : ClientDetailsService {
         private val defaultClient: ClientDetails by lazy {
             val client = BaseClientDetails()
             client.clientId = "5e051ea44f64347c8530c268"
-            client.setScope(listOf("all"))
+            client.setScope(listOf(Scope.Admin).map { it.string })
             client.setAuthorizedGrantTypes(listOf("password", "authorization_code", "refresh_token"))
             client.registeredRedirectUri = listOf("https://www.example.com",
                     "http://46.101.159.55:4200",

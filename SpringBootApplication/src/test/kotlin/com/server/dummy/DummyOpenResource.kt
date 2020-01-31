@@ -1,12 +1,12 @@
-package com.server.resources
+package com.server.dummy
 
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping(value = ["/api/open"])
-class OpenResource {
+@RequestMapping(value = ["/api/dummy/open"])
+class DummyOpenResource {
 
     @RequestMapping(method = [RequestMethod.GET])
     fun get(): String {

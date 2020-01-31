@@ -1,4 +1,4 @@
-package com.server.util
+package com.server.extensions
 
 import com.server.auth.CustomSimpleGrantedAuthority
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken

@@ -4,7 +4,7 @@ import com.server.auth.userdetails.OAuthUser
 import com.server.repository.auth.AuthenticationSerializer
 import com.server.repository.auth.code.AuthorizationCode
 import com.server.repository.user.User
-import com.server.util.TestCreator
+import com.server.extensions.TestCreator
 import org.junit.Assert.*
 import org.junit.Test
 import java.time.LocalDateTime

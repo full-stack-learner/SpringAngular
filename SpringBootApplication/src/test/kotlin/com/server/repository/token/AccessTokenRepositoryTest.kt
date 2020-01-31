@@ -1,7 +1,7 @@
 package com.server.repository.token
 
 import com.server.repository.auth.token.AccessTokenRepository
-import com.server.util.toDate
+import com.server.extensions.toDate
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before

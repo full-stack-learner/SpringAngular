@@ -1,6 +1,6 @@
 package com.server.repository.auth.token
 
-import com.server.util.toDate
+import com.server.extensions.toDate
 import org.springframework.security.oauth2.common.DefaultExpiringOAuth2RefreshToken
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken
 import org.springframework.security.oauth2.common.DefaultOAuth2RefreshToken

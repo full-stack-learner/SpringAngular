@@ -5,7 +5,7 @@ import com.server.repository.auth.token.AccessTokenRepository
 import com.server.repository.auth.token.MongoAccessToken
 import com.server.repository.auth.token.MongoRefreshToken
 import com.server.repository.auth.token.RefreshTokenRepository
-import com.server.util.toLocalDateTime
+import com.server.extensions.toLocalDateTime
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.oauth2.common.ExpiringOAuth2RefreshToken
 import org.springframework.security.oauth2.common.OAuth2AccessToken

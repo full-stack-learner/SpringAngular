@@ -5,7 +5,7 @@ import com.server.repository.auth.AuthenticationSerializer
 import com.server.repository.auth.token.MongoAccessToken
 import com.server.repository.auth.token.MongoRefreshToken
 import com.server.repository.user.User
-import com.server.util.TestCreator.createAuthentication
+import com.server.extensions.TestCreator.createAuthentication
 import org.junit.runner.RunWith
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringRunner

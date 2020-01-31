@@ -1,4 +1,4 @@
-package com.server.util
+package com.server.extensions
 
 import java.time.Instant
 import java.time.LocalDateTime

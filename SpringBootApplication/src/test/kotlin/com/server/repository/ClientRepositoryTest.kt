@@ -1,6 +1,7 @@
 package com.server.repository
 
 import com.server.MySpringBootTest
+import com.server.auth.Scope
 import com.server.repository.client.Client
 import com.server.repository.client.ClientRepository
 import org.junit.After
@@ -34,7 +35,7 @@ class ClientRepositoryTest {
     @Test
     fun testStoreLoad() {
 
-        val client = Client("secret", scope = listOf("app"), redirectUris = listOf("https://example.com", "http://localhost:4200"))
+        val client = Client("secret", scope = listOf(Scope.Admin).map { it.string }, redirectUris = listOf("https://example.com", "http://localhost:4200"))
         assertNotNull(clientRepository.save(client).id)
         assertEquals(1, clientRepository.count())
 
