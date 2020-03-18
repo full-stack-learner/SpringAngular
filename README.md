@@ -57,3 +57,10 @@ To get started with Angular, [read this](https://angular.io/guide/setup-local). 
  - Executed by the mongo-init container / service in docker-compose.yml file
  - Creates the MongoDB user used by Spring to access the database
  - *Optional: Can populate the database with preconfigured data (folders & .json files) specified in (mongo-init/data-setup)*
+ 
+ # Misc
+ This project uses (among others) the following packages:
+  - @angular/cli
+  - @angular/core
+  - @angular/cdk
+  - @angular/material
