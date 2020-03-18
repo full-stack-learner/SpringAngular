@@ -43,9 +43,9 @@ To get started with Angular, [read this](https://angular.io/guide/setup-local). 
  - Package the Spring application using Maven (navigate to folder first): `./mvnw package` or `mvn package`
  - *Optional: (Create a docker image: `docker build -t philjay/springangular .` - optional because this is also done by 'build:'' in docker-compose in this case)*
  - Build with docker-compose: `docker-compose build --no-cache`
- - Run docker-compose locally: `docker-compose up -d --force-recreate` (remove -d for showing log info)
+ - Run docker-compose locally: `docker-compose up -d --build --force-recreate` (remove -d for showing log info)
  - To run e.g. on remote host: add `-H "ssh://youruser@your.host"` parameter (SSH access required, docker & docker-compose must be installed on remote machine, make sure you have your user permissions configured correctly - user should be in docker group, SSH MaxSessions can also interfere - configure via sshd_conf - set e.g. to 30)
- - Example remote: `docker-compose -H "ssh://root@your.domain" up --force-recreate`
+ - Example remote: `docker-compose -H "ssh://user@your.domain.com" up -d --build --force-recreate`
 
  Running this will create and start all containers included in the docker-compose.yml file. To stop all containers, run: `docker stop $(docker ps -a -q)`
 
