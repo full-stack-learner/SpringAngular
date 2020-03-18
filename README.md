@@ -64,3 +64,5 @@ To get started with Angular, [read this](https://angular.io/guide/setup-local). 
   - @angular/core
   - @angular/cdk
   - @angular/material
+  
+ To update, check out the [Angular update guide](https://update.angular.io/).
