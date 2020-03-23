@@ -25,22 +25,25 @@ services:
   spring:
     build: ./SpringBootApplication # location of the Dockerfile for Spring
     restart: always # avoid downtime
-    image: philjay/springbootapp
+    image: appname/spring
     container_name: spring
     restart: always
     environment:
        - "SPRING_PROFILES_ACTIVE=production" # use Spring 'production' profile when deployed
     ports:
       - 8080:8080
+      - 8443:8443 # SSL
     depends_on:
       - mongo-init
 
   angular:
     build: ./AngularApplication # location of the Dockerfile for Angular
+    image: appname/angular
     container_name: angular
     restart: always # avoid downtime
     ports:
       - 4200:4200 # local execution via ng Serve
       - 80:80 # when running in nginx
+      - 443:443 # when running nginx with SSL
     depends_on:
       - mongo-init
