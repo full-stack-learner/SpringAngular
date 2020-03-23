@@ -2,7 +2,10 @@
 Pre-configured **Spring** implementation with out of the box support for OAuth2, MongoDB, REST endpoints, ... with frontend written in **Angular**.
 
 # Getting Started
-To get started with Angular, [read this](https://angular.io/guide/setup-local). Make sure you have your favourite IDE (VSCode of course) and `Angular CLI` installed, using Node Package Manager (NPM): `npm install -g @angular/cli`.
+To get started with Angular, [read this](https://angular.io/guide/setup-local). Make sure you have:
+ - Your favourite IDE (VSCode of course) installed
+ - Node installed: `brew update` and then `brew install node` 
+ - Angular CLI installed, using Node Package Manager (NPM): `npm install -g @angular/cli`
 
 # General Features
  - [Docker](https://www.docker.com/) 🐳 (docker-compose in place for "one-click" deployment on local and remote host)
