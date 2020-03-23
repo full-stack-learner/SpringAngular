@@ -13,7 +13,7 @@ To get started with Angular, [read this](https://angular.io/guide/setup-local). 
  - Frontend using [Angular](https://angular.io/)
  - Backend using [Spring Boot](https://spring.io/) 🍃
  - [MongoDB](https://www.mongodb.com/) database
- - Optional: Pre-populating database with data via Docker & sh script
+ - *Optional: Pre-populating database with data via Docker & sh script*
 
 # Spring Features (Backend)
  - Written in **Kotlin**
