@@ -7,6 +7,7 @@ To get started with Angular, [read this](https://angular.io/guide/setup-local). 
  - Node installed: `brew update` and then `brew install node` 
  - Angular CLI installed, using Node Package Manager (NPM): `npm install -g @angular/cli`
  - *Optional: You may have to run `ng update` & `npm update` (in the project directory) to run this project*
+ - *Optional: Check out [this stackoverflow answer](https://stackoverflow.com/a/22849716/1590502) on how to update all dependencies of an Angular project*
 
 # General Features
  - [Docker](https://www.docker.com/) 🐳 (docker-compose in place for "one-click" deployment on local and remote host)
