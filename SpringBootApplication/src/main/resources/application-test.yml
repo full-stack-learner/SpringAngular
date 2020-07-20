@@ -7,7 +7,8 @@ spring:
     mongodb:
       username: testuser
       password: 1234
-      uri: mongodb://localhost
-      port: 27017
-      database: testdatabase
-      authentication-database: testdatabase
+      uri: mongodb://localhost/testdatabase
+      #host: localhost
+      #port: 27017
+      #database: testdatabase
+      #authentication-database: testdatabase

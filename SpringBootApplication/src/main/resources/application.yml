@@ -15,4 +15,3 @@ server:
 crypto:
   algorithm: AES
   key: 12345678912345678912345678955555
-
